@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HomePage.vue'
 import NavBar from './components/NavBar.vue'
 </script>
 
@@ -8,7 +7,7 @@ import NavBar from './components/NavBar.vue'
     <NavBar />
   </div>
   <div class="main-content">
-    <HelloWorld msg="Welcome!" />
+    <router-view />
   </div>
 </template>
 

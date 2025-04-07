@@ -1,10 +1,20 @@
 <template>
   <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#user">User</a></li>
-    <li style="float: right"><a class="active" href="#login">Login</a></li>
+    <li><router-link to="/">Home</router-link></li>
+    <li v-if="token.token.access_token">
+      <router-link to="/profile">Profile</router-link>
+    </li>
+    <li v-if="token.token.access_token" style="float: right">
+      <router-link to="/logout" class="active">Logout</router-link>
+    </li>
+    <li v-else style="float: right"><router-link to="/login" class="active">Login</router-link></li>
   </ul>
 </template>
+
+<script setup>
+import { useTokenStore } from '../stores/token.js'
+const token = useTokenStore()
+</script>
 
 <style>
 ul {

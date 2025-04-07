@@ -4,12 +4,12 @@ import { ref } from 'vue'
 export const useUserInfoStore = defineStore('userInfo', () => {
   const userInfo = ref({})
 
-  function updateUserInfo(newInfo) {
+  function setUserInfo(newInfo) {
     userInfo.value = { ...userInfo.value, ...newInfo }
   }
 
   return {
     userInfo,
-    updateUserInfo,
+    setUserInfo,
   }
 })
