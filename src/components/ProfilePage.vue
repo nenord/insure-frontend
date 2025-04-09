@@ -1,5 +1,5 @@
 <template>
-  <h3>User info</h3>
+  <h2>User info</h2>
   <UserDetail :user="user" />
 </template>
 

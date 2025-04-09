@@ -1,12 +1,13 @@
 <template>
-  <h3>Policies info</h3>
-  <div v-for="policy in policies" :key="policy.id">
-    <PolicyDetail :policy="policy" />
+  <h2>Policies info</h2>
+  <div v-for="policy in policies" :key="policy._id">
+    <router-link :to="{ name: 'Policy', params: { id: policy._id } }">
+      <h4>{{ policy.make }} - {{ policy.model }}</h4>
+    </router-link>
   </div>
 </template>
 
 <script setup>
-import PolicyDetail from '@/components/PolicyDetail.vue'
 import { useTokenStore } from '../stores/token.js'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'

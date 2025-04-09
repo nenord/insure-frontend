@@ -4,7 +4,7 @@ import LogIn from '@/components/LogIn.vue'
 import LogOut from '@/components/LogOut.vue'
 import ProfilePage from '@/components/ProfilePage.vue'
 import PoliciesPage from '@/components/PoliciesPage.vue'
-import PolicyPage from '@/components/PoliciesPage.vue'
+import PolicyPage from '@/components/PolicyPage.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -35,7 +35,7 @@ export default createRouter({
       component: PoliciesPage,
     },
     {
-      path: '/policys/:id',
+      path: '/policy/:id',
       name: 'Policy',
       component: PolicyPage,
     },
