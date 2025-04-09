@@ -4,6 +4,9 @@
     <li v-if="token.token.access_token">
       <router-link to="/profile">Profile</router-link>
     </li>
+    <li v-if="token.token.access_token">
+      <router-link to="/policies">Policies</router-link>
+    </li>
     <li v-if="token.token.access_token" style="float: right">
       <router-link to="/logout" class="active">Logout</router-link>
     </li>

@@ -4,7 +4,6 @@ const props = defineProps({ user: { type: Object, required: true } })
 
 <template>
   <div>
-    <h3>User info</h3>
     <p>{{ props.user }}</p>
   </div>
 </template>

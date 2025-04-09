@@ -13,7 +13,7 @@
       <button type="submit">Login</button>
     </form>
   </div>
-  <div>
+  <div class="center">
     <h3 v-if="errorMessage">{{ errorMessage }}</h3>
   </div>
 </template>
@@ -82,6 +82,7 @@ label {
 input {
   width: 100%;
   padding: 0.5rem;
+  padding-right: 0px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -97,5 +98,10 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
 }
 </style>
