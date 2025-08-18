@@ -1,7 +1,15 @@
 <template>
   <div class="login">
-    <h1>Login</h1>
-    <form @submit.prevent="logIn">
+    <h1>New user</h1>
+    <form @submit.prevent="createUser">
+      <div>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" v-model="first_name" required />
+      </div>
+      <div>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" v-model="last_name" required />
+      </div>
       <div>
         <label for="email">Email:</label>
         <input type="email" id="email" v-model="email" required />
@@ -10,56 +18,52 @@
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" required />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">Create user</button>
     </form>
   </div>
   <div class="center">
     <h3 v-if="errorMessage">{{ errorMessage }}</h3>
   </div>
-  <div class="center">
-    <p>Don't have an account? <router-link to="/createuser">Create one here</router-link></p>
-  </div>
 </template>
 
 <script setup>
 import axios from 'axios'
-import { useTokenStore } from '../stores/token.js'
 import { ref } from 'vue'
 import router from '@/router/index.js'
 
-const token = useTokenStore()
-
 const email = ref()
 const password = ref()
+const first_name = ref()
+const last_name = ref()
 const errorMessage = ref('')
 
-const logIn = async () => {
+const createUser = async () => {
   try {
     const response = await axios.post(
-      'https://bck-ins-247364232676.europe-west1.run.app/token',
+      'https://bck-ins-247364232676.europe-west1.run.app/users',
       {
-        username: email.value,
+        first_name: first_name.value,
+        last_name: last_name.value,
+        email: email.value,
         password: password.value,
       },
       {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
       },
     )
-    if (response.status === 200) {
-      token.token = response.data
-      console.log(response.data)
+    if (response.status === 201) {
+      console.log('User created successfully', response.data)
       errorMessage.value = ''
-      router.push('/')
+      router.push('/login')
     } else {
       console.error('Error: Unexpected response status', response.status)
-      token.token = {}
     }
   } catch (error) {
-    console.error('Error: Unable to log in', error.response.data)
-    errorMessage.value = error.response.data.detail
-    token.token = {}
+    console.error('Error', error.response.data)
+    errorMessage.value =
+      error.response.data.detail[0].loc[1] + ': ' + error.response.data.detail[0].msg
   }
 }
 </script>

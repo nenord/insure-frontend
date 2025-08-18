@@ -7,6 +7,9 @@
     <li v-if="token.token.access_token">
       <router-link to="/policies">Policies</router-link>
     </li>
+    <li v-if="userinfo.userInfo.role === 'admin'">
+      <router-link to="/users">Users</router-link>
+    </li>
     <li v-if="token.token.access_token" style="float: right">
       <router-link to="/logout" class="active">Logout</router-link>
     </li>
@@ -17,6 +20,8 @@
 <script setup>
 import { useTokenStore } from '../stores/token.js'
 const token = useTokenStore()
+import { useUserInfoStore } from '@/stores/userInfo'
+const userinfo = useUserInfoStore()
 </script>
 
 <style>

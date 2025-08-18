@@ -5,6 +5,9 @@ import LogOut from '@/components/LogOut.vue'
 import ProfilePage from '@/components/ProfilePage.vue'
 import PoliciesPage from '@/components/PoliciesPage.vue'
 import PolicyPage from '@/components/PolicyPage.vue'
+import UsersPage from '@/components/UsersPage.vue'
+import UserPage from '@/components/UserPage.vue'
+import CreateUser from '@/components/CreateUser.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -38,6 +41,21 @@ export default createRouter({
       path: '/policy/:id',
       name: 'Policy',
       component: PolicyPage,
+    },
+    {
+      path: '/users',
+      name: 'Users',
+      component: UsersPage,
+    },
+    {
+      path: '/user/:id',
+      name: 'User',
+      component: UserPage,
+    },
+    {
+      path: '/createuser',
+      name: 'Createuser',
+      component: CreateUser,
     },
   ],
 })
