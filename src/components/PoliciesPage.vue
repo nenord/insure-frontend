@@ -23,6 +23,7 @@ onMounted(async () => {
         {
           headers: {
             Authorization: `Bearer ${token.token.access_token}`,
+            'Access-Control-Allow-Origin': '*',
           },
         },
       )
