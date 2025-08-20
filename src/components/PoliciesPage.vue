@@ -19,7 +19,7 @@ onMounted(async () => {
   if (token.token.access_token) {
     try {
       const response = await axios.get(
-        'https://bck-ins-247364232676.europe-west1.run.app/policies',
+        'https://cors-anywhere.herokuapp.com/https://bck-ins-247364232676.europe-west1.run.app/policies',
         {
           headers: {
             Authorization: `Bearer ${token.token.access_token}`,
