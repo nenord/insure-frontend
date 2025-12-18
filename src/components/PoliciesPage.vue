@@ -18,7 +18,7 @@ const policies = ref({})
 onMounted(async () => {
   if (token.token.access_token) {
     try {
-      const response = await axios.get('api/policies', {
+      const response = await axios.get('http://127.0.0.1:8080/policies', {
         headers: {
           Authorization: `Bearer ${token.token.access_token}`,
         },

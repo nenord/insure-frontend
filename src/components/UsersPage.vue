@@ -18,7 +18,7 @@ const users = ref({})
 onMounted(async () => {
   if (token.token.access_token) {
     try {
-      const response = await axios.get('https://bck-ins-247364232676.europe-west1.run.app/users', {
+      const response = await axios.get('http://127.0.0.1:8080/users', {
         headers: {
           Authorization: `Bearer ${token.token.access_token}`,
         },

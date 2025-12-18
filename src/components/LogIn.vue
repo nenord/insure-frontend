@@ -36,7 +36,7 @@ const errorMessage = ref('')
 const logIn = async () => {
   try {
     const response = await axios.post(
-      'https://bck-ins-247364232676.europe-west1.run.app/token',
+      'http://127.0.0.1:8080/token',
       {
         username: email.value,
         password: password.value,
