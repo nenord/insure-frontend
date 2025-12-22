@@ -29,7 +29,7 @@ onMounted(async () => {
       <h3>Welcome back {{ userinfo.userInfo.first_name }}!</h3>
     </template>
     <template v-else>
-      <h3>Please log in to continue.</h3>
+      <h3>Please log in to cnt.</h3>
     </template>
   </div>
 </template>
