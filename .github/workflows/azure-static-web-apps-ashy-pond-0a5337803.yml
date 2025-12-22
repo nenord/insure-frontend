@@ -21,8 +21,12 @@ jobs:
       # Step 2: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v6
+        
+      # Step 3: Set up Node.js
+      - name: Install dependencies
+        run: npm install
 
-      # Step 3: Run tests
+      # Step 4: Run tests
       - name: Run tests
         run: npm test
 
@@ -72,6 +76,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
 
 
 
