@@ -26,7 +26,7 @@ onMounted(async () => {
 <template>
   <div class="greetings">
     <template v-if="token.token.access_token">
-      <h3>You're back {{ userinfo.userInfo.first_name }}!</h3>
+      <h3>Welcome back {{ userinfo.userInfo.first_name }}!</h3>
     </template>
     <template v-else>
       <h3>Please log in to continue.</h3>
