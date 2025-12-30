@@ -29,6 +29,12 @@ jobs:
       # Step 4: Run tests
       - name: Run tests
         run: npm test
+
+      # Step 5: Run static code analysis with ESLint
+      - name: Run static code analysis with ESLint
+        uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: src/
         
   build_and_deploy_job:
     needs: test
@@ -65,4 +71,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_GROUND_0F6816303 }}
           action: "close"
+
 
