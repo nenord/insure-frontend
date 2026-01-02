@@ -18,11 +18,14 @@ const policies = ref({})
 onMounted(async () => {
   if (token.token.access_token) {
     try {
-      const response = await axios.get('http://127.0.0.1:8080/policies', {
-        headers: {
-          Authorization: `Bearer ${token.token.access_token}`,
+      const response = await axios.get(
+        'https://insure2-htd9edh8cec2gsf0.canadacentral-01.azurewebsites.net/policies',
+        {
+          headers: {
+            Authorization: `Bearer ${token.token.access_token}`,
+          },
         },
-      })
+      )
       policies.value = response.data
     } catch (error) {
       console.error('Error fetching user info:', error)

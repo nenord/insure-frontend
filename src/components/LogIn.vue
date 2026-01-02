@@ -36,7 +36,7 @@ const errorMessage = ref('')
 const logIn = async () => {
   try {
     const response = await axios.post(
-      'http://127.0.0.1:8080/token',
+      'https://insure2-htd9edh8cec2gsf0.canadacentral-01.azurewebsites.net/token',
       {
         username: email.value,
         password: password.value,
