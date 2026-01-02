@@ -40,7 +40,7 @@ const errorMessage = ref('')
 const createUser = async () => {
   try {
     const response = await axios.post(
-      'https://http://127.0.0.1:8080/users',
+      'https://https://insure2-htd9edh8cec2gsf0.canadacentral-01.azurewebsites.net/users',
       {
         first_name: first_name.value,
         last_name: last_name.value,

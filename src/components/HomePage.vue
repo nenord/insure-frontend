@@ -10,7 +10,7 @@ const token = useTokenStore()
 onMounted(async () => {
   if (token.token.access_token) {
     try {
-      const response = await axios.get('http://127.0.0.1:8080/whoami', {
+      const response = await axios.get('https://insure2-htd9edh8cec2gsf0.canadacentral-01.azurewebsites.net/whoami', {
         headers: {
           Authorization: `Bearer ${token.token.access_token}`,
         },
